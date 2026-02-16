@@ -209,8 +209,9 @@ GameObject:
   - component: {fileID: 208258611}
   - component: {fileID: 208258613}
   - component: {fileID: 208258612}
+  - component: {fileID: 208258614}
   m_Layer: 5
-  m_Name: space11
+  m_Name: casilla11
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -228,7 +229,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 742778914}
+  m_Father: {fileID: 1920248588}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -273,6 +274,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 208258610}
   m_CullTransparentMesh: 1
+--- !u!114 &208258614
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 208258610}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 046406bf87258824891ce9cb167040c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Casilla
+  numeroCasilla: 0
 --- !u!1 &288988397
 GameObject:
   m_ObjectHideFlags: 0
@@ -284,8 +298,9 @@ GameObject:
   - component: {fileID: 288988398}
   - component: {fileID: 288988400}
   - component: {fileID: 288988399}
+  - component: {fileID: 288988401}
   m_Layer: 5
-  m_Name: space13
+  m_Name: casilla13
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -303,7 +318,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 742778914}
+  m_Father: {fileID: 1920248588}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -347,6 +362,94 @@ CanvasRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 288988397}
+  m_CullTransparentMesh: 1
+--- !u!114 &288988401
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 288988397}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 046406bf87258824891ce9cb167040c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Casilla
+  numeroCasilla: 0
+--- !u!1 &290742093
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 290742094}
+  - component: {fileID: 290742096}
+  - component: {fileID: 290742095}
+  m_Layer: 5
+  m_Name: Player
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &290742094
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 290742093}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1920248588}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -699, y: -294}
+  m_SizeDelta: {x: 90, y: 90}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &290742095
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 290742093}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: 2dec38ed992289d409463903825da070, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &290742096
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 290742093}
   m_CullTransparentMesh: 1
 --- !u!1 &294154054
 GameObject:
@@ -486,8 +589,9 @@ GameObject:
   - component: {fileID: 395579768}
   - component: {fileID: 395579770}
   - component: {fileID: 395579769}
+  - component: {fileID: 395579771}
   m_Layer: 5
-  m_Name: space7
+  m_Name: casilla7
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -505,7 +609,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 742778914}
+  m_Father: {fileID: 1920248588}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -550,6 +654,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 395579767}
   m_CullTransparentMesh: 1
+--- !u!114 &395579771
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 395579767}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 046406bf87258824891ce9cb167040c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Casilla
+  numeroCasilla: 0
 --- !u!1 &489827610
 GameObject:
   m_ObjectHideFlags: 0
@@ -561,8 +678,9 @@ GameObject:
   - component: {fileID: 489827611}
   - component: {fileID: 489827613}
   - component: {fileID: 489827612}
+  - component: {fileID: 489827614}
   m_Layer: 5
-  m_Name: space16
+  m_Name: casilla16
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -580,7 +698,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 742778914}
+  m_Father: {fileID: 1920248588}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -625,6 +743,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 489827610}
   m_CullTransparentMesh: 1
+--- !u!114 &489827614
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 489827610}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 046406bf87258824891ce9cb167040c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Casilla
+  numeroCasilla: 0
 --- !u!1 &502217005
 GameObject:
   m_ObjectHideFlags: 0
@@ -636,8 +767,9 @@ GameObject:
   - component: {fileID: 502217006}
   - component: {fileID: 502217008}
   - component: {fileID: 502217007}
+  - component: {fileID: 502217009}
   m_Layer: 5
-  m_Name: space12
+  m_Name: casilla12
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -655,7 +787,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 742778914}
+  m_Father: {fileID: 1920248588}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -700,6 +832,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 502217005}
   m_CullTransparentMesh: 1
+--- !u!114 &502217009
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 502217005}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 046406bf87258824891ce9cb167040c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Casilla
+  numeroCasilla: 0
 --- !u!1 &508943819
 GameObject:
   m_ObjectHideFlags: 0
@@ -711,8 +856,9 @@ GameObject:
   - component: {fileID: 508943820}
   - component: {fileID: 508943822}
   - component: {fileID: 508943821}
+  - component: {fileID: 508943823}
   m_Layer: 5
-  m_Name: space20
+  m_Name: casilla20
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -730,7 +876,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 742778914}
+  m_Father: {fileID: 1920248588}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -775,129 +921,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 508943819}
   m_CullTransparentMesh: 1
---- !u!1 &742778913
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 742778914}
-  - component: {fileID: 742778917}
-  - component: {fileID: 742778916}
-  - component: {fileID: 742778915}
-  m_Layer: 5
-  m_Name: BoardCanvas
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &742778914
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 742778913}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1639139522}
-  - {fileID: 1629223544}
-  - {fileID: 1908917509}
-  - {fileID: 1103208258}
-  - {fileID: 1986602835}
-  - {fileID: 1408207625}
-  - {fileID: 1958178293}
-  - {fileID: 395579768}
-  - {fileID: 1426982323}
-  - {fileID: 835482872}
-  - {fileID: 1825522552}
-  - {fileID: 208258611}
-  - {fileID: 502217006}
-  - {fileID: 288988398}
-  - {fileID: 1959953051}
-  - {fileID: 1544139738}
-  - {fileID: 489827611}
-  - {fileID: 767104740}
-  - {fileID: 1358893452}
-  - {fileID: 1992750979}
-  - {fileID: 508943820}
-  - {fileID: 885603906}
-  m_Father: {fileID: 1920248588}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 960, y: 540}
-  m_SizeDelta: {x: 1920, y: 1080}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &742778915
+--- !u!114 &508943823
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 742778913}
+  m_GameObject: {fileID: 508943819}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dc42784cf147c0c48a680349fa168899, type: 3}
+  m_Script: {fileID: 11500000, guid: 046406bf87258824891ce9cb167040c5, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.GraphicRaycaster
-  m_IgnoreReversedGraphics: 1
-  m_BlockingObjects: 0
-  m_BlockingMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
---- !u!114 &742778916
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 742778913}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.CanvasScaler
-  m_UiScaleMode: 0
-  m_ReferencePixelsPerUnit: 100
-  m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
-  m_ScreenMatchMode: 0
-  m_MatchWidthOrHeight: 0
-  m_PhysicalUnit: 3
-  m_FallbackScreenDPI: 96
-  m_DefaultSpriteDPI: 96
-  m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 0
---- !u!223 &742778917
-Canvas:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 742778913}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_RenderMode: 0
-  m_Camera: {fileID: 0}
-  m_PlaneDistance: 100
-  m_PixelPerfect: 0
-  m_ReceivesEvents: 1
-  m_OverrideSorting: 0
-  m_OverridePixelPerfect: 0
-  m_SortingBucketNormalizedSize: 0
-  m_VertexColorAlwaysGammaSpace: 0
-  m_AdditionalShaderChannelsFlag: 0
-  m_UpdateRectTransformForStandalone: 0
-  m_SortingLayerID: 0
-  m_SortingOrder: 0
-  m_TargetDisplay: 0
+  m_EditorClassIdentifier: Assembly-CSharp::Casilla
+  numeroCasilla: 0
 --- !u!1 &767104739
 GameObject:
   m_ObjectHideFlags: 0
@@ -909,8 +945,9 @@ GameObject:
   - component: {fileID: 767104740}
   - component: {fileID: 767104742}
   - component: {fileID: 767104741}
+  - component: {fileID: 767104743}
   m_Layer: 5
-  m_Name: space17
+  m_Name: casilla17
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -928,7 +965,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 742778914}
+  m_Father: {fileID: 1920248588}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -973,6 +1010,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 767104739}
   m_CullTransparentMesh: 1
+--- !u!114 &767104743
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 767104739}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 046406bf87258824891ce9cb167040c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Casilla
+  numeroCasilla: 0
 --- !u!1 &835482871
 GameObject:
   m_ObjectHideFlags: 0
@@ -984,8 +1034,9 @@ GameObject:
   - component: {fileID: 835482872}
   - component: {fileID: 835482874}
   - component: {fileID: 835482873}
+  - component: {fileID: 835482875}
   m_Layer: 5
-  m_Name: space9
+  m_Name: casilla9
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1003,7 +1054,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 742778914}
+  m_Father: {fileID: 1920248588}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1048,6 +1099,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 835482871}
   m_CullTransparentMesh: 1
+--- !u!114 &835482875
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 835482871}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 046406bf87258824891ce9cb167040c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Casilla
+  numeroCasilla: 0
 --- !u!1 &836058787
 GameObject:
   m_ObjectHideFlags: 0
@@ -1270,8 +1334,9 @@ GameObject:
   - component: {fileID: 885603906}
   - component: {fileID: 885603908}
   - component: {fileID: 885603907}
+  - component: {fileID: 885603909}
   m_Layer: 5
-  m_Name: space21
+  m_Name: casilla21
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1289,7 +1354,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 742778914}
+  m_Father: {fileID: 1920248588}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1334,6 +1399,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 885603905}
   m_CullTransparentMesh: 1
+--- !u!114 &885603909
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 885603905}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 046406bf87258824891ce9cb167040c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Casilla
+  numeroCasilla: 0
 --- !u!1 &933338764
 GameObject:
   m_ObjectHideFlags: 0
@@ -1426,6 +1504,81 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1048976022
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1048976023}
+  - component: {fileID: 1048976025}
+  - component: {fileID: 1048976024}
+  m_Layer: 5
+  m_Name: AI
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1048976023
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1048976022}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1920248588}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -609, y: -379}
+  m_SizeDelta: {x: 90, y: 90}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1048976024
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1048976022}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: 435aa8b2d4950604792ddb9443682403, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1048976025
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1048976022}
+  m_CullTransparentMesh: 1
 --- !u!1 &1103208257
 GameObject:
   m_ObjectHideFlags: 0
@@ -1437,8 +1590,9 @@ GameObject:
   - component: {fileID: 1103208258}
   - component: {fileID: 1103208260}
   - component: {fileID: 1103208259}
+  - component: {fileID: 1103208261}
   m_Layer: 5
-  m_Name: space3
+  m_Name: casilla3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1456,7 +1610,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 742778914}
+  m_Father: {fileID: 1920248588}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1501,6 +1655,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1103208257}
   m_CullTransparentMesh: 1
+--- !u!114 &1103208261
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1103208257}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 046406bf87258824891ce9cb167040c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Casilla
+  numeroCasilla: 0
 --- !u!1 &1354749930
 GameObject:
   m_ObjectHideFlags: 0
@@ -1556,8 +1723,9 @@ GameObject:
   - component: {fileID: 1358893452}
   - component: {fileID: 1358893454}
   - component: {fileID: 1358893453}
+  - component: {fileID: 1358893455}
   m_Layer: 5
-  m_Name: space18
+  m_Name: casilla18
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1575,7 +1743,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 742778914}
+  m_Father: {fileID: 1920248588}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1620,6 +1788,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1358893451}
   m_CullTransparentMesh: 1
+--- !u!114 &1358893455
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1358893451}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 046406bf87258824891ce9cb167040c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Casilla
+  numeroCasilla: 0
 --- !u!1 &1408207624
 GameObject:
   m_ObjectHideFlags: 0
@@ -1631,8 +1812,9 @@ GameObject:
   - component: {fileID: 1408207625}
   - component: {fileID: 1408207627}
   - component: {fileID: 1408207626}
+  - component: {fileID: 1408207628}
   m_Layer: 5
-  m_Name: space5
+  m_Name: casilla5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1650,7 +1832,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 742778914}
+  m_Father: {fileID: 1920248588}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1695,6 +1877,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1408207624}
   m_CullTransparentMesh: 1
+--- !u!114 &1408207628
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1408207624}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 046406bf87258824891ce9cb167040c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Casilla
+  numeroCasilla: 0
 --- !u!1 &1426982322
 GameObject:
   m_ObjectHideFlags: 0
@@ -1706,8 +1901,9 @@ GameObject:
   - component: {fileID: 1426982323}
   - component: {fileID: 1426982325}
   - component: {fileID: 1426982324}
+  - component: {fileID: 1426982326}
   m_Layer: 5
-  m_Name: space8
+  m_Name: casilla8
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1725,7 +1921,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 742778914}
+  m_Father: {fileID: 1920248588}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1770,6 +1966,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1426982322}
   m_CullTransparentMesh: 1
+--- !u!114 &1426982326
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1426982322}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 046406bf87258824891ce9cb167040c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Casilla
+  numeroCasilla: 0
 --- !u!1 &1544139737
 GameObject:
   m_ObjectHideFlags: 0
@@ -1781,8 +1990,9 @@ GameObject:
   - component: {fileID: 1544139738}
   - component: {fileID: 1544139740}
   - component: {fileID: 1544139739}
+  - component: {fileID: 1544139741}
   m_Layer: 5
-  m_Name: space15
+  m_Name: casilla15
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1800,7 +2010,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 742778914}
+  m_Father: {fileID: 1920248588}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1845,6 +2055,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1544139737}
   m_CullTransparentMesh: 1
+--- !u!114 &1544139741
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1544139737}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 046406bf87258824891ce9cb167040c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Casilla
+  numeroCasilla: 0
 --- !u!1 &1629223543
 GameObject:
   m_ObjectHideFlags: 0
@@ -1856,8 +2079,9 @@ GameObject:
   - component: {fileID: 1629223544}
   - component: {fileID: 1629223546}
   - component: {fileID: 1629223545}
+  - component: {fileID: 1629223547}
   m_Layer: 5
-  m_Name: space1
+  m_Name: casilla1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1870,12 +2094,12 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1629223543}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 742778914}
+  m_Father: {fileID: 1920248588}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1920,6 +2144,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1629223543}
   m_CullTransparentMesh: 1
+--- !u!114 &1629223547
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1629223543}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 046406bf87258824891ce9cb167040c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Casilla
+  numeroCasilla: 0
 --- !u!1 &1639139521
 GameObject:
   m_ObjectHideFlags: 0
@@ -1931,8 +2168,9 @@ GameObject:
   - component: {fileID: 1639139522}
   - component: {fileID: 1639139524}
   - component: {fileID: 1639139523}
+  - component: {fileID: 1639139525}
   m_Layer: 5
-  m_Name: space0
+  m_Name: casilla0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1950,7 +2188,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 742778914}
+  m_Father: {fileID: 1920248588}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1995,6 +2233,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1639139521}
   m_CullTransparentMesh: 1
+--- !u!114 &1639139525
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1639139521}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 046406bf87258824891ce9cb167040c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Casilla
+  numeroCasilla: 0
 --- !u!1 &1713772807
 GameObject:
   m_ObjectHideFlags: 0
@@ -2142,8 +2393,9 @@ GameObject:
   - component: {fileID: 1825522552}
   - component: {fileID: 1825522554}
   - component: {fileID: 1825522553}
+  - component: {fileID: 1825522555}
   m_Layer: 5
-  m_Name: space10
+  m_Name: casilla10
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2161,7 +2413,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 742778914}
+  m_Father: {fileID: 1920248588}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -2206,6 +2458,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1825522551}
   m_CullTransparentMesh: 1
+--- !u!114 &1825522555
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1825522551}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 046406bf87258824891ce9cb167040c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Casilla
+  numeroCasilla: 0
 --- !u!1 &1908917508
 GameObject:
   m_ObjectHideFlags: 0
@@ -2217,8 +2482,9 @@ GameObject:
   - component: {fileID: 1908917509}
   - component: {fileID: 1908917511}
   - component: {fileID: 1908917510}
+  - component: {fileID: 1908917512}
   m_Layer: 5
-  m_Name: space2
+  m_Name: casilla2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2236,7 +2502,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 742778914}
+  m_Father: {fileID: 1920248588}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -2281,6 +2547,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1908917508}
   m_CullTransparentMesh: 1
+--- !u!114 &1908917512
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1908917508}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 046406bf87258824891ce9cb167040c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Casilla
+  numeroCasilla: 0
 --- !u!1 &1920248584
 GameObject:
   m_ObjectHideFlags: 0
@@ -2378,7 +2657,30 @@ RectTransform:
   - {fileID: 836058788}
   - {fileID: 1713772808}
   - {fileID: 836789951}
-  - {fileID: 742778914}
+  - {fileID: 1639139522}
+  - {fileID: 1629223544}
+  - {fileID: 1908917509}
+  - {fileID: 1103208258}
+  - {fileID: 1986602835}
+  - {fileID: 1408207625}
+  - {fileID: 1958178293}
+  - {fileID: 395579768}
+  - {fileID: 1426982323}
+  - {fileID: 835482872}
+  - {fileID: 1825522552}
+  - {fileID: 208258611}
+  - {fileID: 502217006}
+  - {fileID: 288988398}
+  - {fileID: 1959953051}
+  - {fileID: 1544139738}
+  - {fileID: 489827611}
+  - {fileID: 767104740}
+  - {fileID: 1358893452}
+  - {fileID: 1992750979}
+  - {fileID: 508943820}
+  - {fileID: 885603906}
+  - {fileID: 290742094}
+  - {fileID: 1048976023}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -2397,8 +2699,9 @@ GameObject:
   - component: {fileID: 1958178293}
   - component: {fileID: 1958178295}
   - component: {fileID: 1958178294}
+  - component: {fileID: 1958178296}
   m_Layer: 5
-  m_Name: space6
+  m_Name: casilla6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2411,12 +2714,12 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1958178292}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 742778914}
+  m_Father: {fileID: 1920248588}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -2461,6 +2764,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1958178292}
   m_CullTransparentMesh: 1
+--- !u!114 &1958178296
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1958178292}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 046406bf87258824891ce9cb167040c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Casilla
+  numeroCasilla: 0
 --- !u!1 &1959953050
 GameObject:
   m_ObjectHideFlags: 0
@@ -2472,8 +2788,9 @@ GameObject:
   - component: {fileID: 1959953051}
   - component: {fileID: 1959953053}
   - component: {fileID: 1959953052}
+  - component: {fileID: 1959953054}
   m_Layer: 5
-  m_Name: space14
+  m_Name: casilla14
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2491,7 +2808,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 742778914}
+  m_Father: {fileID: 1920248588}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -2536,6 +2853,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1959953050}
   m_CullTransparentMesh: 1
+--- !u!114 &1959953054
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1959953050}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 046406bf87258824891ce9cb167040c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Casilla
+  numeroCasilla: 0
 --- !u!1 &1986602834
 GameObject:
   m_ObjectHideFlags: 0
@@ -2547,8 +2877,9 @@ GameObject:
   - component: {fileID: 1986602835}
   - component: {fileID: 1986602837}
   - component: {fileID: 1986602836}
+  - component: {fileID: 1986602838}
   m_Layer: 5
-  m_Name: space4
+  m_Name: casilla4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2566,7 +2897,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 742778914}
+  m_Father: {fileID: 1920248588}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -2611,6 +2942,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1986602834}
   m_CullTransparentMesh: 1
+--- !u!114 &1986602838
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1986602834}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 046406bf87258824891ce9cb167040c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Casilla
+  numeroCasilla: 0
 --- !u!1 &1992750978
 GameObject:
   m_ObjectHideFlags: 0
@@ -2622,8 +2966,9 @@ GameObject:
   - component: {fileID: 1992750979}
   - component: {fileID: 1992750981}
   - component: {fileID: 1992750980}
+  - component: {fileID: 1992750982}
   m_Layer: 5
-  m_Name: space19
+  m_Name: casilla19
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2641,7 +2986,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 742778914}
+  m_Father: {fileID: 1920248588}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -2686,6 +3031,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1992750978}
   m_CullTransparentMesh: 1
+--- !u!114 &1992750982
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1992750978}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 046406bf87258824891ce9cb167040c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Casilla
+  numeroCasilla: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

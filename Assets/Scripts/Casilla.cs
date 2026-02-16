@@ -2,17 +2,18 @@ using UnityEngine;
 
 public class Casilla : MonoBehaviour
 {
-    int numeroCasilla;
+    public int numeroCasilla;
 
     private void Awake()
     {
-        
+        string casillaString = gameObject.name.Substring(7);
+        numeroCasilla = int.Parse(casillaString);
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        Debug.Log(numeroCasilla);
     }
 
     // Update is called once per frame
