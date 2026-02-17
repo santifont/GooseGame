@@ -1,11 +1,26 @@
+using System.Collections;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+    // INFORMACIÓN DE LAS CASILLAS
     int[] vectorCasillas; // Posición de los jugadores. 0 -> Vacio / 1 -> Jugador / 2 -> IA
     int[] infoCasillas;
     GameObject[] vectorObjetos;
+
+    // DADO
+    private int dadoNumero;
+    private bool dadoGirando = true;
+    private TextMeshProUGUI dadoNumeroTexto;
+    private GameObject dadoCanvas;
+    private GameObject detenerDadoCanvas;
+
+    // SISTEMA DE TURNOS
+    int ronda = 0;
+
+    // CANVAS
 
     private void Awake()
     {
@@ -50,14 +65,44 @@ public class GameManager : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        vectorObjetos = GameObject.FindGameObjectsWithTag("casillas");
-        Debug.Log(vectorObjetos.Length);
+        // Vector para las posiciones de las casillas
+        vectorObjetos   = GameObject.FindGameObjectsWithTag("casillas");
+
+        // Canvas del dado
+        dadoCanvas        = GameObject.Find("Dado");
+        detenerDadoCanvas = GameObject.Find("DetenerDado");
+        dadoNumeroTexto   = GameObject.Find("NumeroDado").GetComponent<TextMeshProUGUI>();
+        StartCoroutine(GirarDado());
     }
 
     // Update is called once per frame
     void Update()
     {
         
+    }
+
+    public void DetenerDado()
+    {
+        dadoGirando = false;
+        dadoNumero = Random.Range(1, 7);
+        dadoNumeroTexto.text = dadoNumero + "";
+    }
+
+    IEnumerator GirarDado()
+    {
+        int numeroAnterior = 0;
+        dadoNumero = 0;
+        while (dadoGirando == true)
+        {
+            while (dadoNumero == numeroAnterior)
+            {
+                dadoNumero = Random.Range(1, 7);
+            }
+            numeroAnterior = dadoNumero;
+            dadoNumeroTexto.text = dadoNumero + "";
+            Debug.Log(dadoNumero);
+            yield return new WaitForSeconds(0.1f);
+        }
     }
 
     public void StartGame()
