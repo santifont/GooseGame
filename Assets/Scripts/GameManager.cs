@@ -12,10 +12,10 @@ public class GameManager : MonoBehaviour
 
     // DADO
     private int dadoNumero;
-    private bool dadoGirando = true;
+    private bool dadoGirando = false;
     private TextMeshProUGUI dadoNumeroTexto;
     private GameObject dadoCanvas;
-    private GameObject detenerDadoCanvas;
+    private GameObject dadoBoton;
 
     // SISTEMA DE TURNOS
     int ronda = 0;
@@ -32,34 +32,35 @@ public class GameManager : MonoBehaviour
         /*
         0 - normal
         1 - teleport
-        2 - vuelve a tirar
+        2 - vuelve a tirar el dado
         -3 - retrocede 3 casillas
         99 - victoria
          */
 
         infoCasillas = new int[22];
-        infoCasillas[0]  = 0;
-        infoCasillas[1]  = 1;
-        infoCasillas[2]  = 0;
-        infoCasillas[3]  = 0;
-        infoCasillas[4]  = 0;
-        infoCasillas[5]  = -3;
-        infoCasillas[6]  = 1;
-        infoCasillas[7]  = 1;
-        infoCasillas[8]  = 0;
-        infoCasillas[9]  = 0;
-        infoCasillas[10] = -3;
-        infoCasillas[11] = 0;
-        infoCasillas[12] = 2;
-        infoCasillas[13] = 1;
-        infoCasillas[14] = -3;
-        infoCasillas[15] = 0;
-        infoCasillas[16] = 0;
-        infoCasillas[17] = 0;
-        infoCasillas[18] = 2;
-        infoCasillas[19] = -3;
-        infoCasillas[20] = -3;
-        infoCasillas[21] = 99;
+        for (int i = 22; i < infoCasillas.Length; i++) // Asignación de valores a las casillas
+        {
+            if (i == 1 || i == 6 || i == 7 || i == 13)
+            {
+                infoCasillas[i] = 1;
+            }
+            else if (i == 12 || i == 18)
+            {
+                infoCasillas[i] = 2;
+            }
+            else if (i == 5 || i == 10 || i == 14 || i == 19 || i == 20)
+            {
+                infoCasillas[i] = -3;
+            }
+            else if (i == 21)
+            {
+                infoCasillas[i] = 9;
+            }
+            else
+            {
+                infoCasillas[i] = 0;
+            }
+        }
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -69,10 +70,13 @@ public class GameManager : MonoBehaviour
         vectorObjetos   = GameObject.FindGameObjectsWithTag("casillas");
 
         // Canvas del dado
-        dadoCanvas        = GameObject.Find("Dado");
-        detenerDadoCanvas = GameObject.Find("DetenerDado");
-        dadoNumeroTexto   = GameObject.Find("NumeroDado").GetComponent<TextMeshProUGUI>();
-        StartCoroutine(GirarDado());
+        dadoCanvas      = GameObject.Find("Dado");
+        dadoBoton       = GameObject.Find("DetenerDado");
+        dadoNumeroTexto = GameObject.Find("NumeroDado").GetComponent<TextMeshProUGUI>();
+        
+
+
+
     }
 
     // Update is called once per frame
