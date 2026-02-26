@@ -7,9 +7,9 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     // INFORMACIÓN DE LAS CASILLAS
-    public int[] vectorCasillas; // Posición de los jugadores. 0 -> Vacio / 1 -> Jugador / 2 -> IA.
     public int[] infoCasillas; // Info de las casillas.
-    public GameObject[] vectorObjetos; // Posición de las casillas.
+    public int[] vectorCasillas; // Posición de los jugadores. 0 -> Vacio / 1 -> Jugador / 2 -> IA.
+    public GameObject[] vectorObjetos; // Posición de las casillas. (Usar  componente "RectTransform" cuyo component es "anchoredPosition").
 
     // DADO
     private int dadoNumero;
@@ -30,9 +30,19 @@ public class GameManager : MonoBehaviour
     private string turnoIaTexto = "Turno de\nla IA";
     private TextMeshProUGUI textoNarrador;
 
+    // BOTONES EN CASO DE QUE UNA CASILLA ESTÉ OCUPADA
+    private GameObject casillasAdyacentesCanvas;
+
+    //JUGADORES
+    private GameObject jugador;
+    private int jugadorCasilla;
+    private GameObject IA;
+    private int iaCasilla;
+
     private void Awake()
     {
         vectorCasillas = new int[22];
+        vectorObjetos = new GameObject[22];
 
         /*
         0 - normal
@@ -70,8 +80,15 @@ public class GameManager : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        // Vector para las posiciones de las casillas
-        vectorObjetos   = GameObject.FindGameObjectsWithTag("casillas");
+        // Vector para las posiciones de las casillas y jugdores.
+        for (int i = 0; i < vectorObjetos.Length; i++)
+        {
+            vectorObjetos[i] = GameObject.Find("casilla" + i);
+        }
+
+        // Los jugadores
+        jugador = GameObject.Find("Jugador");
+        IA = GameObject.Find("IA");
 
         // Canvas
         textoRonda    = GameObject.Find("Ronda").GetComponent<TextMeshProUGUI>();
@@ -101,31 +118,81 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSeconds(2f);
         textoNarrador.text = "¡Comencemos! Empiezas tú, jugador/a.";
         yield return new WaitForSeconds(2f);
-
-
         while (game == true)
         {
-            // Ronda
+            // Ronda.
             ronda++;
             textoRonda.text = "Ronda: " + ronda;
-            // Turno jugador.
+            // Turno jugador. -------------------------------------------
             textoTurno.text = turnoJugadorTexto;
-            textoNarrador.text = "¡Tira el dado!";
+            textoNarrador.text = "¡Tira el dado, jugador!";
+            turno = true;
             // Activo el canvas del dado.
             dadoCanvas.SetActive(true);
             dadoBoton.SetActive(true);
             dadoGirando = true;
+            StartCoroutine(GirarDado());
             while (turno == true)
             {
                 yield return null;
             }
+            // Moviendo el icono del jugador...
+            textoNarrador.text = "Moviendo ficha...";
+            yield return new WaitForSeconds(1f);
+            vectorCasillas[jugadorCasilla] = 0; // El jugador abandona la casilla.
+            jugadorCasilla = jugadorCasilla + dadoNumero;
+            if (jugadorCasilla > 21)
+            {
+                int rebote = jugadorCasilla - 21;
+                jugadorCasilla = 21 - rebote;
+            } // Rebotar si el jugador sobrepasa el número.
+            jugador.GetComponent<RectTransform>().anchoredPosition = vectorObjetos[jugadorCasilla].GetComponent<RectTransform>().anchoredPosition;
+            vectorCasillas[jugadorCasilla] = 1;
+            if (jugadorCasilla == 21)
+            {
+                textoNarrador.text = "¡El jugador ha ganado!";
+                game = false;
+                StopAllCoroutines();
+            } // El jugador ha ganado, se termina el juego.
+
+            // Turno IA. ----------------------------------------------
+            textoTurno.text = turnoJugadorTexto;
+            textoNarrador.text = "¡Tira el dado, IA!";
+            StartCoroutine(GirarDado());
+            yield return new WaitForSeconds(2f);
+            TiradaDadoIA();
+            // Moviendo el icono de la IA...
+            textoNarrador.text = "Moviendo ficha...";
+            yield return new WaitForSeconds(1f);
+            vectorCasillas[iaCasilla] = 0; // La IA abandona la casilla.
+            iaCasilla = iaCasilla + dadoNumero;
+            if (iaCasilla > 21)
+            {
+                int rebote = iaCasilla - 21;
+                iaCasilla = 21 - rebote;
+            } // Rebotar si la IA sobrepasa el número.
+            IA.GetComponent<RectTransform>().anchoredPosition = vectorObjetos[iaCasilla].GetComponent<RectTransform>().anchoredPosition;
+            vectorCasillas[iaCasilla] = 2;
+            if (iaCasilla == 21)
+            {
+                textoNarrador.text = "¡La IA ha ganado!";
+                game = false;
+                StopAllCoroutines();
+            } // La IA ha ganado, se termina el juego.
         }
-
-
-
     }
 
     public void DetenerDado()
+    {
+        dadoGirando = false;
+        dadoNumero = Random.Range(1, 7);
+        dadoNumeroTexto.text = dadoNumero + "";
+        turno = false;
+        // Desactivo el botón del dado
+        dadoBoton.SetActive(false);
+    }
+
+    public void TiradaDadoIA()
     {
         dadoGirando = false;
         dadoNumero = Random.Range(1, 7);
