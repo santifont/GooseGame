@@ -6,13 +6,13 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     // INFORMACIÓN DE LAS CASILLAS
-    int[] vectorCasillas; // Posición de los jugadores. 0 -> Vacio / 1 -> Jugador / 2 -> IA
-    int[] infoCasillas;
-    GameObject[] vectorObjetos;
+    public int[] vectorCasillas; // Posición de los jugadores. 0 -> Vacio / 1 -> Jugador / 2 -> IA.
+    public int[] infoCasillas; // Info de las casillas.
+    public GameObject[] vectorObjetos; // Posición de las casillas.
 
     // DADO
     private int dadoNumero;
-    private bool dadoGirando = false;
+    private bool dadoGirando = false; // true = girando; false = parado.
     private TextMeshProUGUI dadoNumeroTexto;
     private GameObject dadoCanvas;
     private GameObject dadoBoton;
@@ -40,21 +40,21 @@ public class GameManager : MonoBehaviour
         infoCasillas = new int[22];
         for (int i = 22; i < infoCasillas.Length; i++) // Asignación de valores a las casillas
         {
-            if (i == 1 || i == 6 || i == 7 || i == 13)
+            if (i == 1 || i == 6 || i == 7 || i == 13)  // 1 - TELEPORT
             {
-                infoCasillas[i] = 1;
+                infoCasillas[i] = 1; 
             }
-            else if (i == 12 || i == 18)
+            else if (i == 12 || i == 18) // 2 - VUELVE A TIRAR EL DADO
             {
                 infoCasillas[i] = 2;
             }
-            else if (i == 5 || i == 10 || i == 14 || i == 19 || i == 20)
+            else if (i == 5 || i == 10 || i == 14 || i == 19 || i == 20) // RETROCEDE -3 CASILLAS
             {
                 infoCasillas[i] = -3;
             }
-            else if (i == 21)
+            else if (i == 21) // VICTORIA
             {
-                infoCasillas[i] = 9;
+                infoCasillas[i] = 99;
             }
             else
             {
@@ -73,10 +73,9 @@ public class GameManager : MonoBehaviour
         dadoCanvas      = GameObject.Find("Dado");
         dadoBoton       = GameObject.Find("DetenerDado");
         dadoNumeroTexto = GameObject.Find("NumeroDado").GetComponent<TextMeshProUGUI>();
-        
 
-
-
+        dadoCanvas.SetActive(false);
+        dadoBoton.SetActive(false);
     }
 
     // Update is called once per frame
