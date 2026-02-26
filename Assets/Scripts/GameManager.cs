@@ -1,5 +1,6 @@
 using System.Collections;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -18,24 +19,27 @@ public class GameManager : MonoBehaviour
     private GameObject dadoBoton;
 
     // SISTEMA DE TURNOS
-    int ronda = 0;
+    private int  ronda = 0;
+    private bool game  = true;
+    private bool turno = false; // false = IA, true = jugador.
 
     // CANVAS
+    private TextMeshProUGUI textoRonda;
+    private TextMeshProUGUI textoTurno;
+    private string turnoJugadorTexto = "Turno del jugador";
+    private string turnoIaTexto = "Turno de\nla IA";
+    private TextMeshProUGUI textoNarrador;
 
     private void Awake()
     {
-        vectorCasillas = new int[3];
-        vectorCasillas[0] = 0; // Casillas vacía.
-        vectorCasillas[1] = 1; // Casilla ocupada por el jugador.
-        vectorCasillas[2] = 2; // Casilla ocupada por la IA.
+        vectorCasillas = new int[22];
 
         /*
         0 - normal
         1 - teleport
         2 - vuelve a tirar el dado
         -3 - retrocede 3 casillas
-        99 - victoria
-         */
+        99 - victoria                  */
 
         infoCasillas = new int[22];
         for (int i = 22; i < infoCasillas.Length; i++) // Asignación de valores a las casillas
@@ -69,6 +73,11 @@ public class GameManager : MonoBehaviour
         // Vector para las posiciones de las casillas
         vectorObjetos   = GameObject.FindGameObjectsWithTag("casillas");
 
+        // Canvas
+        textoRonda    = GameObject.Find("Ronda").GetComponent<TextMeshProUGUI>();
+        textoTurno    = GameObject.Find("Turno").GetComponent<TextMeshProUGUI>();
+        textoNarrador = GameObject.Find("Narrador").GetComponent<TextMeshProUGUI>();
+
         // Canvas del dado
         dadoCanvas      = GameObject.Find("Dado");
         dadoBoton       = GameObject.Find("DetenerDado");
@@ -76,12 +85,44 @@ public class GameManager : MonoBehaviour
 
         dadoCanvas.SetActive(false);
         dadoBoton.SetActive(false);
+        StartCoroutine(GooseGame());
     }
 
     // Update is called once per frame
     void Update()
     {
         
+    }
+
+
+    IEnumerator GooseGame()
+    {
+        textoNarrador.text = "Bienvenido al juego de la Oca.";
+        yield return new WaitForSeconds(2f);
+        textoNarrador.text = "¡Comencemos! Empiezas tú, jugador/a.";
+        yield return new WaitForSeconds(2f);
+
+
+        while (game == true)
+        {
+            // Ronda
+            ronda++;
+            textoRonda.text = "Ronda: " + ronda;
+            // Turno jugador.
+            textoTurno.text = turnoJugadorTexto;
+            textoNarrador.text = "¡Tira el dado!";
+            // Activo el canvas del dado.
+            dadoCanvas.SetActive(true);
+            dadoBoton.SetActive(true);
+            dadoGirando = true;
+            while (turno == true)
+            {
+                yield return null;
+            }
+        }
+
+
+
     }
 
     public void DetenerDado()
@@ -106,20 +147,5 @@ public class GameManager : MonoBehaviour
             Debug.Log(dadoNumero);
             yield return new WaitForSeconds(0.1f);
         }
-    }
-
-    public void StartGame()
-    {
-        SceneManager.LoadScene("GameScene");
-    }
-
-    public void TitleScreen()
-    {
-        SceneManager.LoadScene("TitleScreen");
-    }
-
-    public void ExitGame()
-    {
-        Application.Quit();
     }
 }
