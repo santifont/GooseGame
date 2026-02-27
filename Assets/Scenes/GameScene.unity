@@ -280,7 +280,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 41576051}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1354749931}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: SumarUno
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &41576051
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2337,7 +2349,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1274066020}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1354749931}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: RestarUno
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1274066020
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3628,20 +3652,20 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1862511188}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1274066018}
   - {fileID: 41576049}
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1920248588}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
-  m_Pivot: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 960, y: 540}
+  m_SizeDelta: {x: 1920, y: 1080}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1908917508
 GameObject:
   m_ObjectHideFlags: 0
@@ -3834,6 +3858,7 @@ RectTransform:
   - {fileID: 1710690149}
   - {fileID: 1122764930}
   - {fileID: 1797484202}
+  - {fileID: 1862511192}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -4340,6 +4365,5 @@ SceneRoots:
   - {fileID: 7400940}
   - {fileID: 933338767}
   - {fileID: 294154057}
-  - {fileID: 1862511192}
   - {fileID: 1920248588}
   - {fileID: 1354749932}

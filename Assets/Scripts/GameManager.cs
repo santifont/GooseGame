@@ -94,6 +94,7 @@ public class GameManager : MonoBehaviour
         textoRonda    = GameObject.Find("Ronda").GetComponent<TextMeshProUGUI>();
         textoTurno    = GameObject.Find("Turno").GetComponent<TextMeshProUGUI>();
         textoNarrador = GameObject.Find("Narrador").GetComponent<TextMeshProUGUI>();
+        casillasAdyacentesCanvas = GameObject.Find("EligeAdyacente");
 
         // Canvas del dado
         dadoCanvas      = GameObject.Find("Dado");
@@ -102,6 +103,7 @@ public class GameManager : MonoBehaviour
 
         dadoCanvas.SetActive(false);
         dadoBoton.SetActive(false);
+        casillasAdyacentesCanvas.SetActive(false);
         StartCoroutine(GooseGame());
     }
 
@@ -126,12 +128,12 @@ public class GameManager : MonoBehaviour
             // Turno jugador. -------------------------------------------
             textoTurno.text = turnoJugadorTexto;
             textoNarrador.text = "¡Tira el dado, jugador!";
-            turno = true;
             // Activo el canvas del dado.
             dadoCanvas.SetActive(true);
             dadoBoton.SetActive(true);
             dadoGirando = true;
             StartCoroutine(GirarDado());
+            turno = true;
             while (turno == true)
             {
                 yield return null;
@@ -146,6 +148,19 @@ public class GameManager : MonoBehaviour
                 int rebote = jugadorCasilla - 21;
                 jugadorCasilla = 21 - rebote;
             } // Rebotar si el jugador sobrepasa el número.
+            // Evitar la misma casilla
+            if (vectorCasillas[jugadorCasilla] != 0)
+            {
+                textoNarrador.text = "La casilla está ocupada por la IA. Elige una opción.";
+                yield return new WaitForSeconds(1f);
+                casillasAdyacentesCanvas.SetActive(true);
+                turno = true;
+                while (turno == true)
+                {
+                    yield return null;
+                }
+            }
+            //
             jugador.GetComponent<RectTransform>().anchoredPosition = vectorObjetos[jugadorCasilla].GetComponent<RectTransform>().anchoredPosition;
             vectorCasillas[jugadorCasilla] = 1;
             if (jugadorCasilla == 21)
@@ -156,7 +171,7 @@ public class GameManager : MonoBehaviour
             } // El jugador ha ganado, se termina el juego.
 
             // Turno IA. ----------------------------------------------
-            textoTurno.text = turnoJugadorTexto;
+            textoTurno.text = turnoIaTexto;
             textoNarrador.text = "¡Tira el dado, IA!";
             StartCoroutine(GirarDado());
             yield return new WaitForSeconds(2f);
@@ -171,6 +186,16 @@ public class GameManager : MonoBehaviour
                 int rebote = iaCasilla - 21;
                 iaCasilla = 21 - rebote;
             } // Rebotar si la IA sobrepasa el número.
+            // Evitar la misma casilla
+            if (vectorCasillas[iaCasilla] != 0)
+            {
+                textoNarrador.text = "La casilla está ocupada por el jugador. Elige una opción.";
+                yield return new WaitForSeconds(1f);
+                iaEligeCasilla();
+                textoNarrador.text = "La IA se ha decidido.";
+                yield return new WaitForSeconds(1f);
+            }
+            //
             IA.GetComponent<RectTransform>().anchoredPosition = vectorObjetos[iaCasilla].GetComponent<RectTransform>().anchoredPosition;
             vectorCasillas[iaCasilla] = 2;
             if (iaCasilla == 21)
@@ -179,6 +204,33 @@ public class GameManager : MonoBehaviour
                 game = false;
                 StopAllCoroutines();
             } // La IA ha ganado, se termina el juego.
+        }
+    }
+
+    public void SumarUno()
+    {
+        jugadorCasilla++;
+        casillasAdyacentesCanvas.SetActive(false);
+        turno = false;
+    }
+
+    public void RestarUno()
+    {
+        jugadorCasilla--;
+        casillasAdyacentesCanvas.SetActive(false);
+        turno = false;
+    }
+
+    public void iaEligeCasilla()
+    {
+        int randomChoice = Random.Range(0, 2);
+        if (randomChoice == 0)
+        {
+            iaCasilla--;
+        }
+        else if (randomChoice == 1)
+        {
+            iaCasilla++;
         }
     }
 
