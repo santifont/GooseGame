@@ -160,26 +160,47 @@ public class GameManager : MonoBehaviour
                     yield return null;
                 }
             }
-            // EFECTOS DE CASILLAS ----------------------------------------
-            //////////////////////////////////////
+            // EFECTOS DE CASILLAS //////////////////////////////
             if (jugadorCasilla == 1)  // 1 - TELEPORT
             {
                 jugador.GetComponent<RectTransform>().anchoredPosition = vectorObjetos[jugadorCasilla].GetComponent<RectTransform>().anchoredPosition;
                 textoNarrador.text = "TELEPORT";
                 yield return new WaitForSeconds(1f);
                 jugadorCasilla = 6;
+                if (vectorCasillas[jugadorCasilla] != 0)
+                {
+                    textoNarrador.text = "La casilla está ocupada por la IA. Elige una opción.";
+                    yield return new WaitForSeconds(1f);
+                    casillasAdyacentesCanvas.SetActive(true);
+                    turno = true;
+                    while (turno == true)
+                    {
+                        yield return null;
+                    }
+                }// Evitar la misma casilla
                 jugador.GetComponent<RectTransform>().anchoredPosition = vectorObjetos[jugadorCasilla].GetComponent<RectTransform>().anchoredPosition;
                 vectorCasillas[jugadorCasilla] = 1;
-            }
+            } // TELEPORT DE 1 A 6
             else if (jugadorCasilla == 7)
             {
                 jugador.GetComponent<RectTransform>().anchoredPosition = vectorObjetos[jugadorCasilla].GetComponent<RectTransform>().anchoredPosition;
                 textoNarrador.text = "TELEPORT";
                 yield return new WaitForSeconds(1f);
                 jugadorCasilla = 13;
+                if (vectorCasillas[jugadorCasilla] != 0)
+                {
+                    textoNarrador.text = "La casilla está ocupada por la IA. Elige una opción.";
+                    yield return new WaitForSeconds(1f);
+                    casillasAdyacentesCanvas.SetActive(true);
+                    turno = true;
+                    while (turno == true)
+                    {
+                        yield return null;
+                    }
+                }// Evitar la misma casilla
                 jugador.GetComponent<RectTransform>().anchoredPosition = vectorObjetos[jugadorCasilla].GetComponent<RectTransform>().anchoredPosition;
                 vectorCasillas[jugadorCasilla] = 1;
-            }
+            } // TELEPORT DE 7 A 13
             else if (jugadorCasilla == 12 || jugadorCasilla == 18) // 2 - VUELVE A TIRAR EL DADO
             {
                 jugador.GetComponent<RectTransform>().anchoredPosition = vectorObjetos[jugadorCasilla].GetComponent<RectTransform>().anchoredPosition;
@@ -193,27 +214,49 @@ public class GameManager : MonoBehaviour
                 while (turno == true)
                 {
                     yield return null;
-                }
+                } // El juego espera por el jugador
                 jugadorCasilla = jugadorCasilla + dadoNumero;
                 if (jugadorCasilla > 21)
                 {
                     int rebote = jugadorCasilla - 21;
                     jugadorCasilla = 21 - rebote;
                 } // Rebotar si el jugador sobrepasa el número.
+                if (vectorCasillas[jugadorCasilla] != 0)
+                {
+                    textoNarrador.text = "La casilla está ocupada por la IA. Elige una opción.";
+                    yield return new WaitForSeconds(1f);
+                    casillasAdyacentesCanvas.SetActive(true);
+                    turno = true;
+                    while (turno == true)
+                    {
+                        yield return null;
+                    }
+                }// Evitar la misma casilla
                 jugador.GetComponent<RectTransform>().anchoredPosition = vectorObjetos[jugadorCasilla].GetComponent<RectTransform>().anchoredPosition;
                 vectorCasillas[jugadorCasilla] = 1;
                 textoNarrador.text = "Al haber tirado el dado dos veces, cancelas el efecto de la casilla en la que acabas de caer";
                 yield return new WaitForSeconds(4f);
-            }
+            } // LANZA EL DADO DE NUEVO
             else if (jugadorCasilla == 5 || jugadorCasilla == 10 || jugadorCasilla == 14 || jugadorCasilla == 19 || jugadorCasilla == 20) // RETROCEDE -3 CASILLAS
             {
                 jugador.GetComponent<RectTransform>().anchoredPosition = vectorObjetos[jugadorCasilla].GetComponent<RectTransform>().anchoredPosition;
                 textoNarrador.text = "Retrocede 3 casillas";
                 jugadorCasilla -= 3;
                 yield return new WaitForSeconds(2f);
+                if (vectorCasillas[jugadorCasilla] != 0)
+                {
+                    textoNarrador.text = "La casilla está ocupada por la IA. Elige una opción.";
+                    yield return new WaitForSeconds(1f);
+                    casillasAdyacentesCanvas.SetActive(true);
+                    turno = true;
+                    while (turno == true)
+                    {
+                        yield return null;
+                    }
+                }// Evitar la misma casilla
                 jugador.GetComponent<RectTransform>().anchoredPosition = vectorObjetos[jugadorCasilla].GetComponent<RectTransform>().anchoredPosition;
                 vectorCasillas[jugadorCasilla] = 1;
-            }
+            } // RETROCEDE 3
             else if (jugadorCasilla == 21) // VICTORIA
             {
                 jugador.GetComponent<RectTransform>().anchoredPosition = vectorObjetos[jugadorCasilla].GetComponent<RectTransform>().anchoredPosition;
@@ -227,7 +270,6 @@ public class GameManager : MonoBehaviour
                 jugador.GetComponent<RectTransform>().anchoredPosition = vectorObjetos[jugadorCasilla].GetComponent<RectTransform>().anchoredPosition;
                 vectorCasillas[jugadorCasilla] = 1;
             }
-            //////////////////////////////////////
             // Turno IA. ----------------------------------------------
             textoTurno.text = turnoIaTexto;
             textoNarrador.text = "¡Tira el dado, IA!";
@@ -261,6 +303,14 @@ public class GameManager : MonoBehaviour
                 textoNarrador.text = "TELEPORT";
                 yield return new WaitForSeconds(1f);
                 iaCasilla = 6;
+                if (vectorCasillas[iaCasilla] != 0)
+                {
+                    textoNarrador.text = "La casilla está ocupada por el jugador. Elige una opción.";
+                    yield return new WaitForSeconds(1f);
+                    iaEligeCasilla();
+                    textoNarrador.text = "La IA se ha decidido.";
+                    yield return new WaitForSeconds(1f);
+                } // Evitar la misma casilla
                 IA.GetComponent<RectTransform>().anchoredPosition = vectorObjetos[iaCasilla].GetComponent<RectTransform>().anchoredPosition;
                 vectorCasillas[iaCasilla] = 2;
             }
@@ -270,6 +320,14 @@ public class GameManager : MonoBehaviour
                 textoNarrador.text = "TELEPORT";
                 yield return new WaitForSeconds(1f);
                 iaCasilla = 13;
+                if (vectorCasillas[iaCasilla] != 0)
+                {
+                    textoNarrador.text = "La casilla está ocupada por el jugador. Elige una opción.";
+                    yield return new WaitForSeconds(1f);
+                    iaEligeCasilla();
+                    textoNarrador.text = "La IA se ha decidido.";
+                    yield return new WaitForSeconds(1f);
+                } // Evitar la misma casilla
                 IA.GetComponent<RectTransform>().anchoredPosition = vectorObjetos[iaCasilla].GetComponent<RectTransform>().anchoredPosition;
                 vectorCasillas[iaCasilla] = 2;
             }
@@ -286,6 +344,14 @@ public class GameManager : MonoBehaviour
                     int rebote = iaCasilla - 21;
                     iaCasilla = 21 - rebote;
                 } // Rebotar si la IA sobrepasa el número.
+                if (vectorCasillas[iaCasilla] != 0)
+                {
+                    textoNarrador.text = "La casilla está ocupada por el jugador. Elige una opción.";
+                    yield return new WaitForSeconds(1f);
+                    iaEligeCasilla();
+                    textoNarrador.text = "La IA se ha decidido.";
+                    yield return new WaitForSeconds(1f);
+                } // Evitar la misma casilla
                 IA.GetComponent<RectTransform>().anchoredPosition = vectorObjetos[iaCasilla].GetComponent<RectTransform>().anchoredPosition;
                 vectorCasillas[iaCasilla] = 2;
                 textoNarrador.text = "Al haber tirado el dado dos veces, cancelas el efecto de la casilla en la que acabas de caer";
@@ -297,6 +363,14 @@ public class GameManager : MonoBehaviour
                 textoNarrador.text = "Retrocede 3 casillas";
                 iaCasilla -= 3;
                 yield return new WaitForSeconds(2f);
+                if (vectorCasillas[iaCasilla] != 0)
+                {
+                    textoNarrador.text = "La casilla está ocupada por el jugador. Elige una opción.";
+                    yield return new WaitForSeconds(1f);
+                    iaEligeCasilla();
+                    textoNarrador.text = "La IA se ha decidido.";
+                    yield return new WaitForSeconds(1f);
+                } // Evitar la misma casilla
                 IA.GetComponent<RectTransform>().anchoredPosition = vectorObjetos[iaCasilla].GetComponent<RectTransform>().anchoredPosition;
                 vectorCasillas[iaCasilla] = 2;
             }
